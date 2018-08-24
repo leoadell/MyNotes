@@ -1,0 +1,18 @@
+<div class="login">
+  <h3>Log In</h3>
+  <form #f ngNativeValidate (ngSubmit)="login(f)">
+
+    <input type="email" placeholder="E-Mail" name="email"
+     [(ngModel)]="email" autocomplete="off" required />
+
+    <input type="password" placeholder="Password"
+     name="email" [(ngModel)]="password" autocomplete="off" required />
+
+    <button>Log In</button>
+    <button (click)="google()">Log in with google</button>
+    <a [routerLink]="'/register'">
+      Don't have an account? Register
+    </a>
+    <p class="error">{{ error }}</p>
+  </form>
+</div>

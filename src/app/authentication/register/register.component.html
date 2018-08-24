@@ -1,0 +1,20 @@
+<div class="register">
+  <h3>Register</h3>
+  <form #f ngNativeValidate (ngSubmit)="register(f)">
+    <input type="email" placeholder="E-Mail" name="email"
+    [(ngModel)]="user.email" autocomplete="off" required/>
+
+    <input type="text" placeholder="Name" name="name"
+    [(ngModel)]="user.name" autocomplete="off" required/>
+
+    <input type="password" placeholder="Password" name="email"
+    [(ngModel)]="user.password" autocomplete="off" required/>
+
+    <button>Register</button>
+    
+    <button class="btn-danger"
+    [routerLink]="'/login'">Cancel</button>
+
+    <p class="error">{{ error }}</p>
+  </form>
+</div>
