@@ -1,43 +1,43 @@
 
 .login > form {
-    display: flex;
-    flex-direction: column;
-    width:50%;
-  }
-  
-  form > * {
-    margin: 5px 0px;
-    padding: 5px 10px;
-  }
-  
-  a, 
-  a:active,
-  a:focus,
-  a:active:focus {
-    color: black;
-  
-  }
-  
-  button {
-    background: #11AF96;
-    border: none;
-    color: white;
-    padding: 15px;
-    height: 40px;
-  }
-  
-  .login {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #fcfcfc;
-  }
-  
-  .error {
-    display: block;
-    color: red;
-    font-size: 11px;
-  }
+  display: flex;
+  flex-direction: column;
+  width:50%;
+}
+
+form > * {
+  margin: 5px 0px;
+  padding: 5px 10px;
+}
+
+a, 
+a:active,
+a:focus,
+a:active:focus {
+  color: black;
+
+}
+
+button {
+  background: #11AF96;
+  border: none;
+  color: white;
+  padding: 15px;
+  height: 40px;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #fcfcfc;
+}
+
+.error {
+  display: block;
+  color: red;
+  font-size: 11px;
+}
