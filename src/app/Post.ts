@@ -4,4 +4,4 @@ export interface Post {
     date_posted: Date;
     position: number;
     body: string;
-  }
+  } 

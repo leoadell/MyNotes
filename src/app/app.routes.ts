@@ -13,7 +13,7 @@ const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent },
     { path: 'dashboard', component: DashboardComponent },
 
-];
+]; 
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
