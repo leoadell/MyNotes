@@ -20,6 +20,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { LoginComponent } from './authentication/login/login.component';
+import { AuthGuard } from './authentication/auth.guard';
+import { AuthService } from './authentication/auth.service';
 
 
 @NgModule({
@@ -51,6 +53,8 @@ import { LoginComponent } from './authentication/login/login.component';
   ],
   providers: [
     DataService,
+    AuthGuard,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
