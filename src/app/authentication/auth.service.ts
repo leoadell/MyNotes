@@ -19,7 +19,7 @@ export class AuthService {
 
     // return JSON.parse(sessionStorage.getItem('isLoggedIn'));
 
-    const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    const expiresAt = JSON.parse(localStorage.getItem('expires_at'));    
     return new Date().getTime() < expiresAt;
   }
 
