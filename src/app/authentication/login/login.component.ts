@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
   }
 
   login = (form: NgForm) => {
-    alert("login");
     this._fireAuth.auth
       .signInWithEmailAndPassword(this.email, this.password)
       .then(

@@ -18,9 +18,7 @@ export class AuthService {
     // Access Token's expiry time
 
     // return JSON.parse(sessionStorage.getItem('isLoggedIn'));
-alert("isAuthenticated");
     const expiresAt = JSON.parse(localStorage.getItem('expires_at'));    
-    alert(expiresAt);
     return new Date().getTime() < expiresAt;
   }
 
@@ -49,7 +47,6 @@ alert("isAuthenticated");
 
   public logout(): void {
     // Remove tokens and expiry time from localStorage
-    alert("here");
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');

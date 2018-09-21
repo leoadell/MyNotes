@@ -43,7 +43,6 @@ export class RegisterComponent implements OnInit {
         this._store.collection('users')
           .doc(`${id}`).set(this.user)
           .then(() => {
-            alert('User Registered!');
             this._router.navigate(['/login']);
           });
       });
