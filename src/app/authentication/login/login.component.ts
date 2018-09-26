@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   error: string;
   constructor(
     private _fireAuth: AngularFireAuth,
-    private _router: Router
+    private _router: Router,
+    private _auth: AuthService,
   ) { }
 
   ngOnInit() {
@@ -25,10 +27,9 @@ export class LoginComponent implements OnInit {
   login = (form: NgForm) => {
     this._fireAuth.auth
       .signInWithEmailAndPassword(this.email, this.password)
-      .then(
-        res => {
-          sessionStorage.setItem('isLoggedIn', 'true');
+      .then(() => {
           form.reset();
+          this._auth.setSession(true);
           this._router.navigate(['/dashboard']);
         }
       )

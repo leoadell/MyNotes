@@ -17,9 +17,10 @@ export class AuthService {
     // Check whether the current time is past the
     // Access Token's expiry time
 
-    // return JSON.parse(sessionStorage.getItem('isLoggedIn'));
-    const expiresAt = JSON.parse(localStorage.getItem('expires_at'));    
-    return new Date().getTime() < expiresAt;
+    // alert( JSON.parse(sessionStorage.getItem('isLoggedIn')));
+    // const expiresAt = JSON.parse(localStorage.getItem('expires_at'));    
+    // return new Date().getTime() < expiresAt;
+    return JSON.parse(localStorage.getItem('isLoggedIn'));
   }
 
   /*
@@ -37,12 +38,13 @@ export class AuthService {
       });
     }
   */
-  private setSession(authResult): void {
+  public setSession(authResult): void {
     // Set the time that the Access Token will expire at
-    const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+    localStorage.setItem('isLoggedIn', authResult);
+  /* const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('expires_at', expiresAt);
+    localStorage.setItem('expires_at', expiresAt);*/
   }
 
   public logout(): void {
@@ -50,6 +52,7 @@ export class AuthService {
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
+    localStorage.removeItem('isLoggedIn');
     // Go back to the home route
     this._router.navigate(['/']);
     /**
