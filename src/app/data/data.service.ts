@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Post } from '../Post';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 
 @Injectable()
-export class DataService {
-
+export class DataService implements OnInit {
+entradas =[];
   ELEMENT_DATA: Post[] = [
     { position: 0, title: 'Post One', category: 'Web Development', date_posted: new Date(), body: 'Body 1' },
     { position: 1, title: 'Post Two', category: 'Android Development', date_posted: new Date(), body: 'Body 2' },
@@ -20,7 +21,15 @@ export class DataService {
     { value: 'Android-Development', viewValue: 'Android Development' },
     { value: 'IOS-Development', viewValue: 'IOS Development' }
   ];
-  constructor() { }
+  constructor(
+    private _store: AngularFirestore,
+  ) { }
+
+  ngOnInit(){
+    this._store.collection('entradas')
+    .valueChanges()
+    .subscribe(entradas =>this.entradas = entradas);
+  }
   getData(): Observable<Post[]> {
     return Observable.of<Post[]>(this.ELEMENT_DATA);
   }
