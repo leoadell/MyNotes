@@ -23,15 +23,19 @@ entradas =[];
   ];
   constructor(
     private _store: AngularFirestore,
-  ) { }
 
-  ngOnInit(){
+  ) {
+
     this._store.collection('entradas')
     .valueChanges()
     .subscribe(entradas =>this.entradas = entradas);
+   }
+
+  ngOnInit(){
+   
   }
   getData(): Observable<Post[]> {
-    return Observable.of<Post[]>(this.ELEMENT_DATA);
+    return Observable.of<Post[]>(this.entradas);
   }
 
   getCategories() {
